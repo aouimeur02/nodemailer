@@ -12,6 +12,12 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     next();
 });
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://192.168.1.99:5173');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 var myemail = process.env.SENDER_EMAIL;
 var mypassword = process.env.APPLICATION_PASSWORD;
